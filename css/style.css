@@ -1,0 +1,336 @@
+/* container role*/
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .container {
+    max-width: 970px;
+  }
+}
+
+@media (min-width: 991px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* container role*/
+/* global role*/
+* {
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* start header */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+header .container .logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+header .container .links img {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header .container .links img {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
+
+header .container .links ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  header .container .links ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: block;
+    padding-top: 5.625rem;
+    transition: 0.5s;
+  }
+
+  header .container .links ul.hide {
+    width: 0;
+    overflow: hidden;
+  }
+
+  header .container .links ul::before {
+    content: "";
+    width: 50%;
+    right: 0;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+  }
+}
+
+header .container .links ul li {
+  padding: 0 0.9375rem;
+}
+
+header .container .links ul li:last-child {
+  padding-right: 0;
+}
+
+@media (max-width: 767px) {
+  header .container .links ul li {
+    text-align: left;
+    position: relative;
+    padding: 0.9375rem;
+    color: hsl(240, 100%, 5%);
+    font-weight: 500;
+    width: 50%;
+    left: 50%;
+  }
+}
+
+header .container .links ul li a {
+  color: hsl(236, 13%, 42%);
+}
+
+header .container .links ul li a:hover {
+  color: hsl(5, 85%, 63%);
+}
+
+header .container .bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header .container .bar {
+    display: block;
+  }
+}
+
+/* end header */
+/* start home */
+.home {
+  padding-top: 1.25rem;
+}
+
+.home .container .news {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: start;
+}
+
+@media (max-width: 767px) {
+  .home .container .news {
+    flex-direction: column;
+  }
+}
+
+.home .container .news .last-news {
+  margin-right: 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .home .container .news .last-news {
+    margin-right: 0rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.home .container .news .last-news img {
+  max-width: 100%;
+  height: auto;
+}
+
+.home .container .news .last-news .text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.9375rem;
+}
+
+@media (max-width: 767px) {
+  .home .container .news .last-news .text {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.home .container .news .last-news .text h1 {
+  color: hsl(240, 100%, 5%);
+  font-size: 3.125rem;
+  max-width: 18.75rem;
+}
+
+@media (max-width: 767px) {
+  .home .container .news .last-news .text h1 {
+    font-size: 2.8125rem;
+    max-width: 100%;
+  }
+}
+
+.home .container .news .last-news .text div p {
+  color: hsl(236, 13%, 42%);
+  max-width: 23.125rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .home .container .news .last-news .text div p {
+    max-width: 100%;
+  }
+}
+
+.home .container .news .last-news .text div button {
+  background-color: hsl(240, 100%, 5%);
+  width: 9.375rem;
+  height: 2.5rem;
+  border: none;
+  color: hsl(36, 100%, 99%);
+  text-transform: uppercase;
+  letter-spacing: 0.3125rem;
+  display: block;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.home .container .news .last-news .text div button:hover {
+  background-color: hsl(5, 85%, 63%);
+}
+
+.home .container .news .new-news {
+  padding: 0.9375rem 1.25rem;
+  background-color: hsl(240, 100%, 5%);
+}
+
+.home .container .news .new-news h1 {
+  color: hsl(35, 77%, 62%);
+  font-size: 2.5rem;
+  margin: 0.9375rem 0;
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .home .container .news .new-news h1 {
+    font-size: 1.25rem;
+    margin: 0.625rem 0;
+  }
+}
+
+.home .container .news .new-news div {
+  border-bottom: 1px solid hsl(36, 100%, 99%);
+  padding-bottom: 0.625rem;
+}
+
+.home .container .news .new-news div:last-child {
+  border-bottom: none;
+}
+
+.home .container .news .new-news div h3 {
+  color: white;
+  padding: 1.25rem 0;
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .home .container .news .new-news div h3 {
+    font-size: 0.8125rem;
+    padding: 0.9375rem 0;
+  }
+}
+
+.home .container .news .new-news div p {
+  color: #9e9fb3;
+  line-height: 1.8;
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+  .home .container .news .new-news div p {
+    font-size: 0.75rem;
+    text-align: justify;
+  }
+}
+
+.home .container .i-dont-know {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .home .container .i-dont-know {
+    flex-direction: column;
+  }
+}
+
+.home .container .i-dont-know .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .home .container .i-dont-know .box {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.home .container .i-dont-know .box img {
+  width: 5.3125rem;
+}
+
+.home .container .i-dont-know .box div {
+  padding: 0 0.9375rem;
+}
+
+.home .container .i-dont-know .box div span {
+  display: block;
+  font-size: 1.5625rem;
+  color: #9e9fb3;
+  margin-bottom: 0.625rem;
+}
+
+.home .container .i-dont-know .box div a {
+  margin: 0.625rem 0;
+  font-weight: bold;
+  font-size: 0.9375rem;
+  color: hsl(240, 100%, 5%);
+}
+
+.home .container .i-dont-know .box div a:hover {
+  color: hsl(5, 85%, 63%);
+}
+
+.home .container .i-dont-know .box div p {
+  color: hsl(236, 13%, 42%);
+  font-size: 0.8125rem;
+  margin-top: 0.625rem;
+}
+
+/* end home */
+/*# sourceMappingURL=style.css.map */

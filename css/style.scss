@@ -1,0 +1,304 @@
+// variables
+$orangeColor: hsl(35, 77%, 62%);
+$redColor: hsl(5, 85%, 63%);
+$offWhite: hsl(36, 100%, 99%);
+$darkColor: hsl(240, 100%, 5%);
+$textColor: hsl(236, 13%, 42%);
+// mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin points($point) {
+  @if ($point == mobile) {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if($point == medium) {
+    @media (min-width: 767px) and (max-width: 991px) {
+      @content;
+    }
+  }
+  @if ($point == large) {
+    @media (min-width: 991px) {
+      @content;
+    }
+  }
+}
+
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color, $opacity);
+}
+// functions
+
+@function rem($size) {
+  @return $size/16 + rem;
+}
+
+/* container role*/
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  @include points(mobile) {
+    max-width: 750px;
+  }
+  @include points(medium) {
+    max-width: 970px;
+  }
+  @include points(large) {
+    max-width: 1200px;
+  }
+}
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+@mixin cricle($dimenstions) {
+  width: $dimenstions;
+  height: $dimenstions;
+  border-radius: 50%;
+}
+/* container role*/
+
+/* global role*/
+* {
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* start header */
+header {
+  .container {
+    @include flex-between;
+    padding-top: rem(16);
+    .logo {
+      img {
+        @include img-fluid;
+      }
+    }
+    .links {
+      img {
+        display: none;
+        @include points(mobile) {
+          display: block;
+          position: absolute;
+          right: 20px;
+          top: 20px;
+        }
+      }
+      ul {
+        @include flex-between;
+        @include points(mobile) {
+          @include overlay(black, 0.9);
+          display: block;
+          padding-top: rem(90);
+          transition: 0.5s;
+          &.hide {
+            width: 0;
+            overflow: hidden;
+          }
+          &::before {
+            content: "";
+            width: 50%;
+            right: 0;
+            height: 100%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+          }
+        }
+        li {
+          padding: 0 rem(15);
+          &:last-child {
+            padding-right: 0;
+          }
+          @include points(mobile) {
+            text-align: left;
+            position: relative;
+            padding: rem(15);
+            color: $darkColor;
+            font-weight: 500;
+            width: 50%;
+            left: 50%;
+          }
+          a {
+            color: $textColor;
+            &:hover {
+              color: $redColor;
+            }
+          }
+        }
+      }
+    }
+    .bar {
+      display: none;
+      @include points(mobile) {
+        display: block;
+      }
+    }
+  }
+}
+/* end header */
+
+/* start home */
+.home {
+  padding-top: rem(20);
+  .container {
+    .news {
+      @include flex-between;
+      align-items: start;
+      @include points(mobile) {
+        flex-direction: column;
+      }
+      .last-news {
+        margin-right: rem(20);
+        @include points(mobile) {
+          margin-right: rem(0);
+          margin-bottom: rem(20)
+        }
+        img {
+          @include img-fluid;
+        }
+        .text {
+          @include flex-between;
+          margin-top: rem(15);
+          @include points(mobile) {
+            flex-direction: column;
+            align-items: start;
+          }
+          h1 {
+            color: $darkColor;
+            font-size: rem(50);
+            max-width: rem(300);
+            @include points(mobile) {
+              font-size: rem(45);
+              max-width: 100%;
+            }
+          }
+          div {
+            p {
+              color: $textColor;
+              max-width: rem(370);
+              line-height: 1.5;
+              margin-bottom: rem(20);
+              @include points(mobile) {
+                max-width: 100%;
+              }
+            }
+            button {
+              background-color: $darkColor;
+              width: rem(150);
+              height: rem(40);
+              border: none;
+              color: $offWhite;
+              text-transform: uppercase;
+              letter-spacing: rem(5);
+              display: block;
+              transition: 0.4s;
+              cursor: pointer;
+              &:hover {
+                background-color: $redColor;
+              }
+            }
+          }
+        }
+      }
+      .new-news {
+        padding: rem(15) rem(20);
+        background-color: $darkColor;
+        h1 {
+          color: $orangeColor;
+          font-size: rem(40);
+          margin: rem(15) 0;
+        }
+        @include points(medium) {
+          h1 {
+            font-size: rem(20);
+            margin: rem(10) 0;
+          }
+        }
+        div {
+          border-bottom: 1px solid $offWhite;
+          padding-bottom: rem(10);
+          &:last-child {
+            border-bottom: none;
+          }
+          h3 {
+            color: white;
+            padding: rem(20) 0;
+            @include points(medium) {
+              font-size: rem(13);
+              padding: rem(15) 0;
+            }
+          }
+          p {
+            color: #9e9fb3;
+            line-height: 1.8;
+            @include points(medium) {
+              font-size: rem(12);
+              text-align: justify;
+            }
+          }
+        }
+      }
+    }
+    .i-dont-know {
+      @include flex-between;
+      margin-top: rem(20);
+      @include points(mobile) {
+        flex-direction: column;
+      }
+      .box {
+        @include flex-between;
+        @include points(mobile){
+          margin-bottom: rem(20);
+        }
+        img {
+          width: rem(85);
+        }
+        div {
+          padding: 0 rem(15);
+          span {
+            display: block;
+            font-size: rem(25);
+            color: #9e9fb3;
+            margin-bottom: rem(10);
+          }
+          a {
+            margin: rem(10) 0;
+            font-weight: bold;
+            font-size: rem(15);
+            color: $darkColor;
+            &:hover {
+              color: $redColor;
+            }
+          }
+          p {
+            color: $textColor;
+            font-size: rem(13);
+            margin-top: rem(10);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* end home */
